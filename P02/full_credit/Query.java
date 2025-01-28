@@ -3,16 +3,12 @@ import java.util.Scanner;
 
 public class Query
 {
-    // +main(args : String[])
     public static void main(String[] args)
     {
         if (args.length == 0)
         {
-            // List available AI engines
             System.out.println("Available search engines are " + Engines.GEMINI + ", " + Engines.LAMA + ", " + Engines.COPILOT);
-            
             return;
-
         }
 
         else if (args.length >= 1)
