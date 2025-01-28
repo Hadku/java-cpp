@@ -9,7 +9,7 @@ public class Query
         if (args.length == 0)
         {
             // List available AI engines
-            println("Available search engines are " + Engines.KOMO + ", " + Engines.PHIND + ", " + Engines.BRAVE);
+            System.out.println("Available search engines are " + Engines.GEMINI + ", " + Engines.LAMA + ", " + Engines.COPILOT);
             
             return;
 
@@ -18,6 +18,7 @@ public class Query
         else if (args.length >= 1)
         {
             Engines engine = Engines.valueOf(args[0].toUpperCase());
+            
             System.out.println("Using Engine " + engine);
 
             AI ai = new AI(engine);
@@ -28,22 +29,11 @@ public class Query
 
             while (scanner.hasNextLine()) 
             {
-                /*String question = scanner.nextLine();
-                System.out.println(ai.query(question));*/
                 String query = scanner.nextLine();
                 System.out.println(ai.query(query));
                 System.out.println("Ask " + engine + " anything:");
 
             }
-
-            /*String[] history = ai.getQueryHistory();
-            for (String query : history) 
-            {
-                if (query != null) 
-                {
-                    System.out.println(query);
-                }
-            }*/
 
             System.out.println("");
             System.out.println("Your most recent 5 queries were:");
