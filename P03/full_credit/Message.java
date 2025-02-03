@@ -52,32 +52,46 @@ public class Message
     @Override
     public String toString()
     {
+        StringBuilder sb = new StringBuilder();
 
-        System.out.println("Date: " + date);
-        System.out.println("From: " + from.toString());
+        //System.out.println("Date: " + date);
+        //System.out.println("From: " + from.toString());
+        sb.append("Date: ").append(date).append("\n");
+        sb.append("From: ").append(from).append("\n");
+
 
         if (repliedTo != null) 
         {
-            System.out.println("In reply to: " + repliedTo.from.toString());
+            //System.out.println("In reply to: " + repliedTo.from.toString());
+            sb.append("In reply to: ").append(repliedTo.from).append("\n");
+            //System.out.println(repliedTo);
         }
+   //     System.out.println(repliedTo);
 
         if (!replies.isEmpty()) 
         {
-            System.out.println("Replies: ");
+            //System.out.println("Replies: ");
+            sb.append("Replies: ");
+
             for (int i = 0; i < replies.size(); i++) 
             {
-                System.out.println(replies.get(i).from.toString());
+                //System.out.println(replies.get(i).from.toString());
+                sb.append(replies.get(i).from.toString());
                 if (i < replies.size() - 1) 
                 {
-                    System.out.println(", ");
+                    //System.out.println(", ");
+                    sb.append("\n");
                 }
             }
-            System.out.println("\n");
+            //System.out.println("\n");
+            sb.append("\n");
         }
 
-        System.out.println("\n" + body);
+        //System.out.println("\n" + body);
+        sb.append("\n").append(body);
 
-        return repliedTo.toString();
+        //return repliedTo.toString();
+        return sb.toString();
 
     }
 
