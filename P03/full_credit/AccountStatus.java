@@ -1,4 +1,4 @@
-public enum AccountStatus
+public enum AccountStatus 
 {
     Normal,
     Muted,
