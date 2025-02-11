@@ -1,6 +1,9 @@
+package message;
+
+
 import java.util.ArrayList;
 import java.util.Date;
-
+import account.Account;
 
 public class Message
 {
