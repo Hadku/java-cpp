@@ -24,23 +24,6 @@ public class Abuta
 
     public Abuta() 
     {
-        /*accounts = new ArrayList<>();  // Initialize the accounts list
-        // Initialize accounts directly and add to the list
-        accounts.add(new Account("Hadi"));
-        accounts.add(new Account("Lad"));
-        accounts.add(new Account("Angelo"));
-        accounts.add(new Account("Jinwoo"));
-        accounts.add(new Account("Kabuto"));
-
-
-        
-        groups = new ArrayList<>();    // Initialize the groups list
-        // Initialize groups directly and add to the list
-        groups.add(new Group("Class member"));
-        groups.add(new Group("lvl 100 boss"));
-        groups.add(new Group("Mafia"));
-        groups.add(new Group("Martial arts"));
-        groups.add(new Group("Ninja"));*/
 
         accounts = new Account[5];  
         groups = new Group[5];      
@@ -62,29 +45,7 @@ public class Abuta
         message = new Post(accounts[0], groups[0], null, "Welcome  to  a b U T A");
 
         menu = new Menu();
-        /*public class MenuItem implements Runnable 
-        {
-            private Object menuText;
-            private Runnable menuResponse;
 
-            public MenuItem(Object menuText, Runnable menuResponse) 
-            {
-                this.menuText = menuText;
-                this.menuResponse = menuResponse;
-            }
-
-            @Override
-            public String toString() 
-            {
-                return menuText.toString();
-            }
-
-            @Override
-            public void run() 
-            {
-                menuResponse.run();
-            }
-        }*/
         menu.addMenuItem(new MenuItem("Exit", () -> endApp()));
         menu.addMenuItem(new MenuItem("Show Reply", () -> showReply()));
         menu.addMenuItem(new MenuItem("Show Replied To", () -> showRepliedTo()));
@@ -140,15 +101,6 @@ public class Abuta
 
         int index = Menu.getInt("enter reply: ");
         
-        /*try 
-        {
-            message = message.getReply(index); 
-            output = "Reply selected successfully.";
-        } 
-        catch (Exception e) 
-        {
-            output = "Invalid selection or no replies available.";
-        }*/
         Message reply = message.getReply(index);
         if (reply != null) 
         {
@@ -167,29 +119,6 @@ public class Abuta
 
     private void reply() 
     {
-        /*tring body = Menu.getString("Selection: ");
-        
-        int authorIndex = Menu.selectItemFromList("Author? ", Arrays.asList(accounts));
-        Account author = accounts[authorIndex];
-
-        boolean isPost = Menu.getChar("Reply as a post (p) or direct message (d)? ") == 'p';
-
-        Message newMessage;
-        if (isPost) 
-        {
-            int groupIndex = Menu.selectItemFromList("Group? ", Arrays.asList(groups));
-            Group group = groups[groupIndex];
-            newMessage = new Post(author, group, message, body);
-        } 
-        else 
-        {
-            int recipientIndex = Menu.selectItemFromList("To? ", Arrays.asList(accounts));
-            Account recipient = accounts[recipientIndex];
-            newMessage = new DirectMessage(author, recipient, message, body);
-        }
-
-        output = "Reply added";*/
-
         String body = Menu.getString("Enter reply: ");
         
         int authorIndex = Menu.selectItemFromList("Author? ", Arrays.asList(accounts));
@@ -211,7 +140,7 @@ public class Abuta
             newMessage = new DirectMessage(author, recipient, message, body);
         }
 
-        message = newMessage;  // Update current message to show new reply
+        message = newMessage;  
         output = "Reply added!";
     }
 
