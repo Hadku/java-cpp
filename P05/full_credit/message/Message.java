@@ -23,6 +23,7 @@ public class Message
         this.repliedTo = repliedTo;
         this.body = body;
         this.replies = new ArrayList<>();
+        this.date = new Date();
         if (repliedTo != null) 
         {
             repliedTo.addReply(this);
@@ -52,10 +53,16 @@ public class Message
         sb.append("From: ").append(from).append("\n");
 
 
+
         if (repliedTo != null) 
         {
             sb.append("In reply to: ").append(repliedTo.from).append("\n");
         }
+        else 
+        {
+            sb.append("\nThis message is not a reply to any other message.\n");
+        }
+
 
         if (!replies.isEmpty()) 
         {

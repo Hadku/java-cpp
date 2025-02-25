@@ -13,7 +13,7 @@ public class Post extends Message
     @Override
     public String toString()
     {
-        return "Group: " + group + "\n" + super.toString();
+        return "\nGroup: " + group + "\n" + super.toString();
     }
 
     private Group group;
