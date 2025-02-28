@@ -144,6 +144,21 @@ public class Abuta
         output = "Reply added!";
     }
 
+    private void save()
+    {
+        //////////////////
+    }
+
+    private void saveAs()
+    {
+        /////////////////////
+    }
+
+    private void open()
+    {
+        //////////////////
+    }
+
     public static void main(String[] args) 
     {
         new Abuta().mdi();

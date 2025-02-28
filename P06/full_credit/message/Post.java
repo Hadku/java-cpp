@@ -10,6 +10,16 @@ public class Post extends Message
         this.group = group;
     }
 
+    public post(BufferedReader br, Message repliedTo)
+    {
+        //////////////////////////////////
+    }
+
+    public void save(BufferedWriter bw)
+    {
+        //////////////////
+    }
+
     @Override
     public String toString()
     {

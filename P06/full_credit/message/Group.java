@@ -16,6 +16,16 @@ public class Group
         this.active = true;
     }
 
+    public Group(BufferedReader br)
+    {
+        ////////////////////////////
+    }
+
+    public save(BufferedWriter bw)
+    {
+        //////////////////////////
+    }
+
     public boolean isActive()
     {
         return active;

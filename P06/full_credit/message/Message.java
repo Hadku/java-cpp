@@ -30,6 +30,16 @@ public class Message
         }
     }
 
+    public Message(BufferedReader br, Message repliedTo)
+    {
+        //////////////////////////
+    }
+
+    public save(BufferedWriter bw)
+    {
+        /////////////////
+    }
+
     public Message getRepliedTo()
     {
         return repliedTo;

@@ -21,6 +21,16 @@ public class Account
         this.status = AccountStatus.Normal;
     }
 
+    public Account(BufferedReader br)
+    {
+        /////////////////////////
+    }
+
+    public save(BufferedWriter bw)
+    {
+        /////////////////////
+    }
+
     public void setStatus(AccountStatus status)
     {
         this.status = status;

@@ -12,6 +12,16 @@ public class DirectMessage extends Message
         this.to = to;
     }
 
+    public Message(BufferedReader br, Message repliedTo)
+    {
+        /////////////////////////////
+    }
+
+    public save(BufferedWriter bw)
+    {
+        //////////////////////
+    }
+
     @Override
     public String toString()
     {
