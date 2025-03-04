@@ -1,5 +1,7 @@
 package message;
 
+import java.io.*;
+
 
 public class Group
 {
@@ -16,14 +18,24 @@ public class Group
         this.active = true;
     }
 
-    public Group(BufferedReader br)
+    public Group(BufferedReader br) 
+        throws IOException
     {
         ////////////////////////////
+        name = br.readLine();
+        active = Boolean.parseBoolean(br.readLine());
+
     }
 
-    public save(BufferedWriter bw)
+    public void save(BufferedWriter bw) 
+        throws IOException
     {
         //////////////////////////
+        bw.write(name);
+        bw.newLine();
+        bw.write(Boolean.toString(active));
+        bw.newLine();
+
     }
 
     public boolean isActive()

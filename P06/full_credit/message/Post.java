@@ -1,6 +1,8 @@
 package message;
 
 import account.Account;
+import java.io.*;
+
 
 public class Post extends Message
 {
@@ -10,14 +12,23 @@ public class Post extends Message
         this.group = group;
     }
 
-    public post(BufferedReader br, Message repliedTo)
+    public Post(BufferedReader br, Message repliedTo) 
+        throws IOException
     {
         //////////////////////////////////
+        super(br, repliedTo);
+        this.group = new Group(br);
+
     }
 
-    public void save(BufferedWriter bw)
+    public void save(BufferedWriter bw) 
+        throws IOException
     {
         //////////////////
+        super.save(bw);
+        bw.write(group.toString());
+        bw.newLine();
+
     }
 
     @Override

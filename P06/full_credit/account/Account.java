@@ -1,5 +1,8 @@
 package account;
 
+import java.io.*;
+
+
 public class Account
 {
     private String name;
@@ -21,14 +24,30 @@ public class Account
         this.status = AccountStatus.Normal;
     }
 
-    public Account(BufferedReader br)
+    public Account(BufferedReader br) 
+        throws IOException
     {
         /////////////////////////
+        name = br.readLine();
+        id = Integer.parseInt(br.readLine());
+        status = AccountStatus.valueOf(br.readLine());
+        nextID = Integer.parseInt(br.readLine());
+
     }
 
-    public save(BufferedWriter bw)
+    public void save(BufferedWriter bw) 
+        throws IOException
     {
         /////////////////////
+        bw.write(name);
+        bw.newLine();
+        bw.write(Integer.toString(id));
+        bw.newLine();
+        bw.write(status.toString());
+        bw.newLine();
+        bw.write(Integer.toString(nextID));
+        bw.newLine();
+
     }
 
     public void setStatus(AccountStatus status)

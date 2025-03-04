@@ -9,6 +9,7 @@ import menu.Menu;
 import menu.MenuItem;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +22,9 @@ public class Abuta
     private Menu menu;
     private String output;
     private boolean running;
+
+    private String filename;
+
 
     public Abuta() 
     {
@@ -62,7 +66,13 @@ public class Abuta
     {
         while (running) 
         {
-            System.out.println("\n                                  - = # a b U T A # = -");
+            System.out.println("\n            Welcome to");
+            System.out.println("                  __   ________   __      _  ___________      __");
+            System.out.println("                 // |  ||      =  ||      |      ||          // |");
+            System.out.println("                //__|  ||______=  ||      |      ||         //__|");
+            System.out.println("               //   |  ||      =  ||      |      ||        //   |");
+            System.out.println("              //    |  ||______=   =======       ||       //    |");
+            
             System.out.println(message);
             System.out.println("\n" + output);
             output = "";
@@ -119,12 +129,13 @@ public class Abuta
 
     private void reply() 
     {
+        boolean isPost = Menu.getChar("Reply as a post (p) or direct message (d)? ") == 'p';
+
         String body = Menu.getString("Enter reply: ");
         
         int authorIndex = Menu.selectItemFromList("Author? ", Arrays.asList(accounts));
         Account author = accounts[authorIndex];
 
-        boolean isPost = Menu.getChar("Reply as a post (p) or direct message (d)? ") == 'p';
 
         Message newMessage;
         if (isPost) 
@@ -144,19 +155,65 @@ public class Abuta
         output = "Reply added!";
     }
 
+    private void newAbuta()
+    {
+        ////////////////
+        message = new Post(accounts[0], groups[0], null, "welcome to abUTA");
+
+    }
+
     private void save()
     {
         //////////////////
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) 
+        {
+            Message root = message;
+            while (root.getRepliedTo() != null) 
+            {
+                root = root.getRepliedTo();
+            }
+            root.save(bw);
+            output = "Saved successfully!";
+        } 
+        catch (IOException e) 
+        {
+            output = "Error saving file!";
+            e.printStackTrace();
+        }
+
     }
 
     private void saveAs()
     {
         /////////////////////
+        String newFilename = Menu.getString("Enter filename: ");
+        if (newFilename != null && !newFilename.trim().isEmpty()) 
+        {
+            filename = newFilename;
+            save();
+        }
+
     }
 
     private void open()
     {
         //////////////////
+        String newFilename = Menu.getString("Enter filename to open: ");
+        if (newFilename != null && !newFilename.trim().isEmpty()) 
+        {
+            filename = newFilename;
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) 
+            {
+                message = new Post(br, null);
+                output = "File opened successfully!";
+            } 
+            catch (IOException e) 
+            {
+                output = "Error opening file!";
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public static void main(String[] args) 
@@ -164,4 +221,3 @@ public class Abuta
         new Abuta().mdi();
     }
 }
-

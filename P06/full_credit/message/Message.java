@@ -4,6 +4,8 @@ package message;
 import java.util.ArrayList;
 import java.util.Date;
 import account.Account;
+import java.io.*;
+
 
 public class Message
 {
@@ -30,14 +32,57 @@ public class Message
         }
     }
 
-    public Message(BufferedReader br, Message repliedTo)
+    public Message(BufferedReader br, Message repliedTo) 
+        throws IOException
     {
         //////////////////////////
+        this.from = new Account(br); 
+        this.date = new Date(Long.parseLong(br.readLine())); 
+        this.body = br.readLine();
+        this.replies = new ArrayList<>();
+        this.repliedTo = repliedTo;
+        if (repliedTo != null) 
+        {
+            repliedTo.addReply(this);
+        }
+
+        int numReplies = Integer.parseInt(br.readLine());
+        for (int i = 0; i < numReplies; i++) 
+        {
+            String className = br.readLine();
+            Message reply;
+            if (className.equals("message.Post")) 
+            {
+                reply = new Post(br, this);
+            } 
+            else 
+            {
+                reply = new DirectMessage(br, this);
+            }
+            replies.add(reply);
+        }
+
     }
 
-    public save(BufferedWriter bw)
+    public void save(BufferedWriter bw) 
+        throws IOException
     {
         /////////////////
+        bw.write(from.toString());
+        bw.newLine();
+        bw.write(Long.toString(date.getTime())); // Save date as timestamp
+        bw.newLine();
+        bw.write(body);
+        bw.newLine();
+        bw.write(Integer.toString(replies.size()));
+        bw.newLine();
+        for (Message reply : replies) 
+        {
+            bw.write(reply.getClass().getName());
+            bw.newLine();
+            reply.save(bw);
+        }
+
     }
 
     public Message getRepliedTo()

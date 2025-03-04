@@ -1,6 +1,8 @@
 package message;
 
 import account.Account;
+import java.io.*;
+
 
 public class DirectMessage extends Message
 {
@@ -12,14 +14,24 @@ public class DirectMessage extends Message
         this.to = to;
     }
 
-    public Message(BufferedReader br, Message repliedTo)
+    public DirectMessage(BufferedReader br, Message repliedTo) 
+        throws IOException
     {
         /////////////////////////////
+        super(br, repliedTo);
+        this.to = new Account(br);
+
     }
 
-    public save(BufferedWriter bw)
+    public void save(BufferedWriter bw) 
+        throws IOException
     {
         //////////////////////
+        super.save(bw);
+        bw.write(to.toString());
+        bw.newLine();
+
+        
     }
 
     @Override
