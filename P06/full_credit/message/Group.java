@@ -21,7 +21,6 @@ public class Group
     public Group(BufferedReader br) 
         throws IOException
     {
-        ////////////////////////////
         name = br.readLine();
         active = Boolean.parseBoolean(br.readLine());
 
@@ -30,7 +29,6 @@ public class Group
     public void save(BufferedWriter bw) 
         throws IOException
     {
-        //////////////////////////
         bw.write(name);
         bw.newLine();
         bw.write(Boolean.toString(active));

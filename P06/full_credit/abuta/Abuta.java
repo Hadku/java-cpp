@@ -44,8 +44,6 @@ public class Abuta
         groups[3] = new Group("Martial arts");
         groups[4] = new Group("Ninja");
 
-
-
         message = new Post(accounts[0], groups[0], null, "Welcome  to  a b U T A");
 
         menu = new Menu();
@@ -54,9 +52,6 @@ public class Abuta
         menu.addMenuItem(new MenuItem("Show Reply", () -> showReply()));
         menu.addMenuItem(new MenuItem("Show Replied To", () -> showRepliedTo()));
         menu.addMenuItem(new MenuItem("Add Reply", () -> reply()));
-
-
-
 
         output = "";
         running = true;
@@ -185,7 +180,6 @@ public class Abuta
 
     private void saveAs()
     {
-        /////////////////////
         String newFilename = Menu.getString("Enter filename: ");
         if (newFilename != null && !newFilename.trim().isEmpty()) 
         {
@@ -197,7 +191,6 @@ public class Abuta
 
     private void open()
     {
-        //////////////////
         String newFilename = Menu.getString("Enter filename to open: ");
         if (newFilename != null && !newFilename.trim().isEmpty()) 
         {

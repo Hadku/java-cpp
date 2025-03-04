@@ -35,7 +35,6 @@ public class Message
     public Message(BufferedReader br, Message repliedTo) 
         throws IOException
     {
-        //////////////////////////
         this.from = new Account(br); 
         this.date = new Date(Long.parseLong(br.readLine())); 
         this.body = br.readLine();
@@ -67,10 +66,9 @@ public class Message
     public void save(BufferedWriter bw) 
         throws IOException
     {
-        /////////////////
         bw.write(from.toString());
         bw.newLine();
-        bw.write(Long.toString(date.getTime())); // Save date as timestamp
+        bw.write(Long.toString(date.getTime())); 
         bw.newLine();
         bw.write(body);
         bw.newLine();
@@ -137,7 +135,6 @@ public class Message
 
         sb.append("\n").append(body);
 
-        //return repliedTo.toString();
         return sb.toString();
 
     }

@@ -15,7 +15,6 @@ public class Post extends Message
     public Post(BufferedReader br, Message repliedTo) 
         throws IOException
     {
-        //////////////////////////////////
         super(br, repliedTo);
         this.group = new Group(br);
 
@@ -24,7 +23,6 @@ public class Post extends Message
     public void save(BufferedWriter bw) 
         throws IOException
     {
-        //////////////////
         super.save(bw);
         bw.write(group.toString());
         bw.newLine();

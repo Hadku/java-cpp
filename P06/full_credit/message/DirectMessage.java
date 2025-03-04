@@ -17,7 +17,6 @@ public class DirectMessage extends Message
     public DirectMessage(BufferedReader br, Message repliedTo) 
         throws IOException
     {
-        /////////////////////////////
         super(br, repliedTo);
         this.to = new Account(br);
 
@@ -26,7 +25,6 @@ public class DirectMessage extends Message
     public void save(BufferedWriter bw) 
         throws IOException
     {
-        //////////////////////
         super.save(bw);
         bw.write(to.toString());
         bw.newLine();

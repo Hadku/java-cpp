@@ -27,7 +27,6 @@ public class Account
     public Account(BufferedReader br) 
         throws IOException
     {
-        /////////////////////////
         name = br.readLine();
         id = Integer.parseInt(br.readLine());
         status = AccountStatus.valueOf(br.readLine());
@@ -38,7 +37,6 @@ public class Account
     public void save(BufferedWriter bw) 
         throws IOException
     {
-        /////////////////////
         bw.write(name);
         bw.newLine();
         bw.write(Integer.toString(id));
