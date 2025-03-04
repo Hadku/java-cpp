@@ -52,6 +52,10 @@ public class Abuta
         menu.addMenuItem(new MenuItem("Show Reply", () -> showReply()));
         menu.addMenuItem(new MenuItem("Show Replied To", () -> showRepliedTo()));
         menu.addMenuItem(new MenuItem("Add Reply", () -> reply()));
+        menu.addMenuItem(new MenuItem("New Abuta", () -> newAbuta()));
+        menu.addMenuItem(new MenuItem("Save", () -> save()));
+        menu.addMenuItem(new MenuItem("Save As", () -> saveAs()));
+        menu.addMenuItem(new MenuItem("Open", () -> open()));
 
         output = "";
         running = true;
@@ -152,14 +156,12 @@ public class Abuta
 
     private void newAbuta()
     {
-        ////////////////
         message = new Post(accounts[0], groups[0], null, "welcome to abUTA");
 
     }
 
     private void save()
     {
-        //////////////////
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) 
         {
             Message root = message;
