@@ -1,7 +1,6 @@
 #include "puzzle.h"
 #include <stdexcept>
 #include <cctype>
-#include <algorithm>
 #include <exception>
 
 //+Puzzle(solution : string)
