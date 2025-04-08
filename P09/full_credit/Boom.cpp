@@ -1,1 +1,0 @@
-//+main(argc : int, argv : char*) : int
