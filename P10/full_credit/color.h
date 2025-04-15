@@ -1,30 +1,3 @@
-/*
-private:
-    //-_mode: Color_mode
-    Color_mode _mode;
-
-    //-_red : int
-    int _red;
-
-    //-_green : int
-    int _green;
-
-    //-_blue: int
-    int _blue;
-
-//#RGB : string_<static> [underlined]
-
-//+Color(red : int, green : int, blue : int, mode : Color_mode <<default>>)
-
-//+Color()
-
-//+operator+(color : Colors& <<const>>) : Color
-
-//+output(ost : ostream&) <<const>> <<override>>*
-
-*/
-
-
 #ifndef COLOR_H
 #define COLOR_H
 

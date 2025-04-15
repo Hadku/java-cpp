@@ -1,18 +1,3 @@
-
-
-/*protected:
-    static string 
-    //#CSI : sting <<static>> [underlined]
-
-public:
-    //+operator<=>ifont: ANSI& #const")! bool <default>
-
-    //+outputlost : ostream&) #const" #abstract" #virtual.
-
-    //+operator<<lost :: ostream&, ansi ANSI& <const) : ostream& wfriend>*
-
-*/
-
 #ifndef ANSI_H
 #define ANSI_H
 

@@ -1,7 +1,3 @@
-//enum class Color_mode {FOREGROUND, BACKGROUND, RESET};
-
-
-
 #include "color_mode.h"
 #include <map>
 

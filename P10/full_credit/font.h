@@ -1,15 +1,3 @@
-/*private:
-    //-_font : int
-
-public:
-    //+Font(font : int)
-
-    //+red : int, green : int, blue : int, mode : Color_mode <<default>>
-
-    //+output(ost : ostream&) <<const>> <<overide>>
-/
-*/
-
 #ifndef FONT_H
 #define FONT_H
 
