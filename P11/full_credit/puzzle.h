@@ -21,7 +21,9 @@ class Puzzle
 
   //  public:
         //+guess(c : char) : bool
-        bool guess(char c);
+        //bool guess(char c);
+        int guess(char c);  // instead of bool
+
 
     //public:
         //+solve(phrase string) : bool
